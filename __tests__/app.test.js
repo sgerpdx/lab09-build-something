@@ -60,11 +60,11 @@ describe('lab09-build-something routes', () => {
 
   it('gets an individual by id', () => {
     return request(app)
-      .get('/api/v1/individuals/2')
+      .get('/api/v1/individuals/3')
       .then((res) => {
         expect(res.body).toEqual({
-          id: '2',
-          alias: 'Nina Lately of Misty Hills Farm',
+          id: '3',
+          alias: 'A Boring But Dependable Test Person',
           human: true,
         });
       });
