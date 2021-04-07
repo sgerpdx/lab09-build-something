@@ -85,4 +85,16 @@ describe('lab09-build-something routes', () => {
         });
       });
   });
+
+  it('deletes an individual by id', () => {
+    return request(app)
+      .delete('/api/v1/individuals/3')
+      .then((res) => {
+        expect(res.body).toEqual({
+          id: '3',
+          alias: 'A Boring But Dependable Test Bot',
+          human: false,
+        });
+      });
+  });
 });
