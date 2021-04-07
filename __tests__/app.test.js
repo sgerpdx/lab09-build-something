@@ -9,9 +9,15 @@ describe('lab09-build-something routes', () => {
     return setup(pool);
   });
 
+  let indOne;
+  let indTwo;
   beforeEach(async () => {
-    await Individual.insert({
+    indOne = await Individual.insert({
       alias: 'A Boring But Dependable Test Person',
+      human: true,
+    });
+    indTwo = await Individual.insert({
+      alias: 'Someone Sweeping Up Red Glitter Next Door',
       human: true,
     });
   });
@@ -25,7 +31,7 @@ describe('lab09-build-something routes', () => {
       })
       .then((res) => {
         expect(res.body).toEqual({
-          id: '4',
+          id: '5',
           alias: 'The Other George Bloom the Lepidopterist',
           human: true,
         });
@@ -88,12 +94,12 @@ describe('lab09-build-something routes', () => {
 
   it('deletes an individual by id', () => {
     return request(app)
-      .delete('/api/v1/individuals/3')
+      .delete('/api/v1/individuals/4')
       .then((res) => {
         expect(res.body).toEqual({
-          id: '3',
-          alias: 'A Boring But Dependable Test Bot',
-          human: false,
+          id: '4',
+          alias: 'Someone Sweeping Up Red Glitter Next Door',
+          human: true,
         });
       });
   });
