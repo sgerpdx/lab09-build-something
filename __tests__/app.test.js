@@ -2,6 +2,7 @@ const pool = require('../lib/utils/pool');
 const setup = require('../data/setup');
 const request = require('supertest');
 const app = require('../lib/app');
+// const Individual = require('../lib/models/Individual');
 
 describe('lab09-build-something routes', () => {
   beforeEach(() => {
