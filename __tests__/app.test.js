@@ -69,4 +69,20 @@ describe('lab09-build-something routes', () => {
         });
       });
   });
+
+  it('updates an individual by id', () => {
+    return request(app)
+      .put('/api/v1/individuals/3')
+      .send({
+        alias: 'A Boring But Dependable Test Bot',
+        human: false,
+      })
+      .then((res) => {
+        expect(res.body).toEqual({
+          id: '3',
+          alias: 'A Boring But Dependable Test Bot',
+          human: false,
+        });
+      });
+  });
 });
