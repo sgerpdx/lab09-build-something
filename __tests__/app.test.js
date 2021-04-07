@@ -9,14 +9,12 @@ describe('lab09-build-something routes', () => {
     return setup(pool);
   });
 
-  let indOne;
-  let indTwo;
   beforeEach(async () => {
-    indOne = await Individual.insert({
+    await Individual.insert({
       alias: 'A Boring But Dependable Test Person',
       human: true,
     });
-    indTwo = await Individual.insert({
+    await Individual.insert({
       alias: 'Someone Sweeping Up Red Glitter Next Door',
       human: true,
     });
