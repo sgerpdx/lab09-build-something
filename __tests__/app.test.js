@@ -36,28 +36,25 @@ describe('lab09-build-something routes', () => {
     return request(app)
       .get('/api/v1/individuals')
       .then((res) => {
-        expect(res.body).toEqual([
-          {
-            id: '1',
-            alias: 'Clyde the Transparent Aluminum Salesman',
-            human: false,
-          },
-          {
-            id: '2',
-            alias: 'Nina Lately of Misty Hills Farm',
-            human: true,
-          },
-          {
-            id: '3',
-            alias: 'A Boring But Dependable Test Person',
-            human: true,
-          },
-          {
-            id: '4',
-            alias: 'The Other George Bloom the Lepidopterist',
-            human: true,
-          },
-        ]);
+        expect(res.body).toEqual(
+          expect.arrayContaining([
+            {
+              id: '1',
+              alias: 'Clyde the Transparent Aluminum Salesman',
+              human: false,
+            },
+            {
+              id: '2',
+              alias: 'Nina Lately of Misty Hills Farm',
+              human: true,
+            },
+            {
+              id: '3',
+              alias: 'A Boring But Dependable Test Person',
+              human: true,
+            },
+          ])
+        );
       });
   });
 });
